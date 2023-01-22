@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+    .ghost-button {
+        background-color: transparent;
+        border: 2px solid #4CAF50;
+        color: black;
+        padding: 10px 20;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .ghost-button:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<head>
+    <title>Air Pollution - Temperature Change</title>
+</head>
+
+<body>
+    <div style="text-align:center">
+        <h1>Air Pollution - Temperature Change</h1>
+        <h2>Enter the values for the following parameters</h2>
+        <br>
+        <form action="/" method="post">
+            Nitrogen oxide (NOx) <input type="text" name="Nitrogen oxide (NOx)" placeholder="0"><br>
+            Sulphur dioxide (SO₂) <input type="text" name="Sulphur dioxide (SO₂)" placeholder="0"><br>
+            Carbon monoxide (CO) <input type="text" name="Carbon monoxide (CO)" placeholder="0"><br>
+            Organic carbon (OC) <input type="text" name="Organic carbon (OC)" placeholder="0"><br>
+            NMVOCs <input type="text" name="NMVOCs" placeholder="0"><br>
+            Black carbon (BC) <input type="text" name="Black carbon (BC)" placeholder="0"><br>
+            Ammonia (NH₃) <input type="text" name="Ammonia (NH₃)" placeholder="0"><br>
+            Year <input type="text" name="Year" placeholder="2020"><br>
+            Country <select name="country">
+                
+                {% for country in countries[1:] %}
+                  <option value="{{country}}">{{country}}</option>
+                {% endfor %}
+              </select>
+            <br>
+            <input class="ghost-button" type="submit" value="Submit">
+            <p>{{ result }}</p>
+            <p>{{error}}</p>
+        </form>
+    </div>
+</body>
+
+</html>
