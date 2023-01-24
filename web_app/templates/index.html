@@ -20,6 +20,8 @@
 
 <head>
     <title>Air Pollution - Temperature Change</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 </head>
 
 <body>
@@ -37,15 +39,22 @@
             Ammonia (NH₃) <input type="text" name="Ammonia (NH₃)" placeholder="0"><br>
             Year <input type="text" name="Year" placeholder="2020"><br>
             Country <select name="country">
-                
+
                 {% for country in countries[1:] %}
-                  <option value="{{country}}">{{country}}</option>
+                <option value="{{country}}">{{country}}</option>
                 {% endfor %}
-              </select>
+            </select>
             <br>
             <input class="ghost-button" type="submit" value="Submit">
-            <p>{{ result }}</p>
+            <p>{{result}}</p>
             <p>{{error}}</p>
+            <p>{{graphData}}</p>
+            <div class="chart" id="linechart">
+                <script>
+                    var graphs = {{ graphData | safe}};
+                    Plotly.plot('linechart', graphs, {});
+                </script>
+            </div>
         </form>
     </div>
 </body>
