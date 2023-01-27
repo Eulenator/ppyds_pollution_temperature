@@ -35,7 +35,6 @@ def index():
 
 
 def _predict(input_x, model_country):
-    print(input_x[-2])
     prediction = model_country.iloc[0]["Temperature Change Model"].predict([input_x])
     return prediction[0]
 

@@ -52,7 +52,14 @@
             <div class="chart" id="linechart">
                 <script>
                     var graphs = {{ graphData | safe}};
-                    Plotly.plot('linechart', graphs, {});
+                    Plotly.plot('linechart', graphs, {
+                        yaxis: {
+                            title: 'Temperature Change (Celsius)'
+                        },
+                        xaxis: {
+                            title: 'Year'
+                        }
+                    });
                 </script>
             </div>
         </form>
